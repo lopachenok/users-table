@@ -1,0 +1,128 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "commonjs": true,
+    "node": true
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "promise",
+    "@typescript-eslint",
+    "simple-import-sort",
+    "prettier"
+  ],
+  "rules": {
+    "arrow-parens": ["off"],
+    "consistent-return": "off",
+    "comma-dangle": "off",
+    "eqeqeq": "error",
+    "import/first": "error",
+    "import/newline-after-import": ["error", {"count": 1}],
+    "import/no-useless-path-segments": "error",
+    "import/no-duplicates": "error",
+    "import/no-self-import": "error",
+    "import/no-unresolved": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "import/order": "off",
+    "simple-import-sort/sort": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^\\w", "^@(?!components|shared|assets|store|data)\\w+"],
+          ["^@components"],
+          ["^@assets/styles", "^\\./styles"],
+          ["^@assets/img"],
+          ["^@store", "^@shared/helpers"],
+          ["^@shared/constants", "@data"],
+          ["^@types", "^@shared/types", "^\\./types$", "^(\\w*|@components)(/\\w*)?/types$"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\.(\\/(?!types)\\w+)+$"],
+          ["^\\u0000"]
+        ]
+      }
+    ],
+    "no-console": 0,
+    "prefer-destructuring": ["error", {"object": true, "array": false}],
+    "no-undef": 2,
+    "semi": [
+      2,
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
+    "no-implicit-coercion": "error",
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
+        ],
+        "allowSamePrecedence": true
+      }
+    ],
+    "promise/param-names": "warn",
+    "promise/always-return": "off",
+    "promise/catch-or-return": "warn",
+    "promise/no-native": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/display-name": "off",
+    "react/prop-types": "off"
+  },
+  // https://github.com/eslint/eslint/issues/8813
+  "overrides": [
+    {
+      "files": ["*.test.js", "*.spec.js"],
+      "env": {
+        "jest": true
+      },
+      "plugins": ["jest"],
+      "rules": {
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
+      }
+    }, {
+      "files": ["*.json"],
+      "rules": {
+        "semi": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
