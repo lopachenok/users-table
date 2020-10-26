@@ -20,15 +20,15 @@ export const UsersTable: FunctionComponent = () => {
   const columns: Column<User>[] = useMemo(
     () => [
       {
-        Header: "First Name",
+        Header: "Имя",
         accessor: "firstName",
       },
       {
-        Header: "Last Name",
+        Header: "Фамилия",
         accessor: "lastName",
       },
       {
-        Header: "Age",
+        Header: "Возраст",
         accessor: "age",
       },
     ],

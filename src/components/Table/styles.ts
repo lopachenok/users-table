@@ -7,7 +7,6 @@ export const TableContainer = styled.div(
     border-spacing: 0;
     border: 1px solid ${theme.COLOR.GRAY};
     font-size: ${theme.FONT.SIZE.S};
-    overflow: scroll;
     width: 500px;
     margin: ${theme.GAP.L} auto 0;
   `
